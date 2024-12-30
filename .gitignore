@@ -21,6 +21,7 @@
 
 !.local/
 !.local/share/
+!.local/share/applications/
 !.local/share/applications/**
 
 !.gnupg/
