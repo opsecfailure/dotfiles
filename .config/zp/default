@@ -1,0 +1,21 @@
+vm_name="$(basename "$0" .sh)"
+mac_addr="$($HOME/.local/bin/qemu-mac-hasher.py $vm_name)"
+
+img_path="${XDG_DATA_HOME:-$HOME/.local/share}/zp/img"
+cdrom_path="${XDG_DATA_HOME:-$HOME/.local/share}/zp/cdrom"
+
+accel="kvm"
+machine="q35"
+cpu="host"
+memory="2048"
+
+drive_if="virtio"
+drive_format="qcow2"
+drive_file="$img_path/$vm_name.$drive_format"
+drive="if=$drive_if,format=$drive_format,file=$drive_file"
+
+nic="bridge,br=virbr0,model=virtio-net-pci,mac=$mac_addr"
+
+spice="unix=on,addr=/tmp/zp_spice_$vm_name.socket,disable-ticketing=on"
+
+monitor="unix:/tmp/zp_monitor_$vm_name.socket,server,nowait"

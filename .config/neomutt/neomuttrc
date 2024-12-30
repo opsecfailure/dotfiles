@@ -1,0 +1,63 @@
+set real_name = "Mehmet Salih Erken"
+set from = "opsecfail@opsec.fail"
+set pgp_default_key = "6F9C2E318D8823A8D7694C0E9ABE724A466BCC60"
+set sendmail = "ssh opsecfail@opsec.fail sendmail"
+set editor = "nvim +/^$/+1 +':noh'" # go to the line after the first empty one
+
+set folder = "~/.local/share/maildir/opsecfail@opsec.fail"
+set header_cache = ".cache/neomutt/header_cache"
+set mailcap_path = "~/.config/neomutt/mailcap"
+set mbox_type = "Maildir"
+set spool_file = "INBOX"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+
+auto_view text/html
+alternative_order text/plain text/html
+
+#set attach_format = ""
+#set date_format = ""
+#set pager_format = ""
+#set pgp_entry_format = ""
+#set query_format = ""
+set forward_format = "Fwd: %s"
+set index_format = "%4C |%zs%zt| %-10.10L | %-40.40s | %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%m/%y ]>"
+set ts_status_format = "NeoMutt - [%f]"
+
+set attach_save_dir = "$XDG_DOWNLOADS_DIR"
+set arrow_cursor = yes
+set abort_backspace = no
+set abort_key = "<Esc>"
+set allow_ansi = yes
+set attach_save_dir = "~/Downloads/"
+set attach_save_without_prompting = yes
+set auto_edit = yes
+set crypt_opportunistic_encrypt = yes
+set edit_headers = yes
+set fast_reply = yes
+set markers = no
+set header_color_partial = yes
+set help = no
+set include = yes
+set mail_check_recent = no
+#set mail_check_stats = yes
+#set mail_check_stats_interval = 10
+set mark_old = no
+set quit = ask-no
+set send_charset = "utf-8"
+set sleep_time = 0
+set sort = "reverse-date-received"
+set tilde = yes
+set ts_enabled = yes
+set use_threads = yes
+set wait_key = no
+set confirm_append = no
+set confirm_create = no
+set delete = yes
+set auto_tag = yes
+set pager_stop = yes
+
+source mailboxes
+source colors
+source bindings

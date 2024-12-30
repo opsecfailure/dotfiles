@@ -1,0 +1,11 @@
+[Default Applications]
+application/epub+zip=org.pwmt.zathura.desktop
+application/pdf=org.pwmt.zathura.desktop
+image/gif=swayimg.desktop
+image/jpeg=swayimg.desktop
+image/png=swayimg.desktop
+video/mp4=video.desktop
+video/webm=video.desktop
+video/ogg=video.desktop
+video/x-matroska=video.desktop
+x-scheme-handler/mailto=mail.desktop

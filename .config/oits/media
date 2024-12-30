@@ -1,0 +1,10 @@
+tmux new-session \
+    -d \
+    -s "$session_name" \
+    -n casts \
+    "lf -config $XDG_CONFIG_HOME/lf/lfrc_noquit $XDG_PODCASTS_DIR"
+
+tmux new-window \
+    -t "$session_name" \
+    -n vids \
+    "lf -config $XDG_CONFIG_HOME/lf/lfrc_noquit $XDG_VIDEOS_DIR"

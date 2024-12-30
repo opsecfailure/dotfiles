@@ -1,0 +1,5 @@
+tmux new-session \
+    -d \
+    -s "$session_name" \
+    -n neomutt \
+    neomutt

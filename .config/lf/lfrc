@@ -1,0 +1,71 @@
+set hidden true
+set info size
+set number true
+set shellopts "-eu"
+set tabstop 4
+set ifs "\n"
+set promptfmt "\033[1m%u@%h:[%w]$\033[0m %f"
+
+setlocal ~/Podcasts/ sortby size
+setlocal ~/Podcasts/ reverse
+setlocal ~/Documents/ sortby size
+setlocal ~/Documents/ reverse
+setlocal ~/Downloads/ sortby time
+setlocal ~/Downloads/ reverse
+setlocal ~/Pictures/ sortby time
+setlocal ~/Pictures/ reverse
+
+map gd cd ~/Documents
+map gc cd ~/Podcasts
+map gw cd ~/Development
+map gj cd ~/Downloads
+map gm cd ~/Music
+map gp cd ~/Pictures
+map gv cd ~/Videos
+
+map e
+map c
+
+map gg top
+map <enter> $$EDITOR "$f"
+map r reload
+map i rename
+map cc push :rename<enter><c-u>
+map I push :rename<enter><c-a>
+map A push :rename<enter><c-e>
+map <esc> clear
+map J :updir; down; open
+map K :updir; up; open
+map o $lf -remote "send $id select \"$(fzf)\""
+map O $lf -remote "send $id select \"$(find ~ | fzf)\""
+map M $mpv "$fx"
+map aM $tmux-session media mpv "$fx"
+
+map D trash
+map R bulk-rename
+
+cmd trash %trash-put "$fx"
+
+cmd bulk-rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" >"$old"
+    printf '%s\n' "$fs" >"$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
+}}

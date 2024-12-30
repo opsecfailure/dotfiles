@@ -1,0 +1,5 @@
+tmux new-session \
+    -d \
+    -s "$session_name" \
+    -n files \
+    "lf -config $XDG_CONFIG_HOME/lf/lfrc_noquit $XDG_DOWNLOAD_DIR"

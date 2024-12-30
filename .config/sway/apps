@@ -1,0 +1,14 @@
+for_window [app_id="mpv"] move window to workspace 1, layout tabbed
+no_focus   [app_id="mpv"]
+for_window [app_id="zathura"] move window to workspace 2, layout tabbed
+no_focus   [app_id="zathura"]
+for_window [app_id="qutebrowser"] move window to workspace 4, layout tabbed
+for_window [app_id="tmpbrowser"] move window to workspace 5, layout tabbed
+for_window [app_id="qutebrowser_fileselect"] move to scratchpad, focus
+for_window [app_id="qutebrowser_editor"] layout splitv, focus
+for_window [app_id="Tor Browser"] move window to workspace 5, layout tabbed
+for_window [app_id="org.telegram.desktop"] move window to workspace 5, layout tabbed
+for_window [app_id="qemu"] move window to workspace 5, layout tabbed
+for_window [app_id="signal"] move window to workspace 5, layout tabbed
+for_window [app_id="spicy"] move window to workspace 5, layout tabbed
+for_window [app_id="webcam"] move to scratchpad, focus

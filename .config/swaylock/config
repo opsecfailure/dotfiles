@@ -1,0 +1,6 @@
+image=$XDG_PICTURES_DIR/Backgrounds/xkcd_security.png
+scaling=center
+font=GoMono Nerd Font
+daemonize
+indicator-radius=24
+indicator-thickness=8

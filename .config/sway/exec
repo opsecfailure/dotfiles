@@ -1,0 +1,9 @@
+exec 'swaylock'
+exec_always 'pkill kanshi; exec kanshi'
+exec 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway'
+exec 'wl-paste --type text --watch cliphist store -max-items=100000'
+exec 'ydotoold'
+exec swayidle -w \
+    timeout 30 'if pgrep swaylock; then systemctl suspend; fi' \
+    after-resume 'swaymsg reload' \
+    before-sleep 'gpgconf --reload gpg-agent; systemctl --user restart ssh-agent.service; swaylock; playerctl pause --all-players'

@@ -1,0 +1,10 @@
+[user]
+	name = Mehmet Salih Erken
+	email = opsecfail@opsec.fail
+	signingkey = 09E38F3D626AF121B93B6C646789E03BF7B50A0A
+
+[commit]
+	gpgSign = true
+
+[init]
+	defaultBranch = main

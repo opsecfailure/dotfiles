@@ -1,0 +1,15 @@
+[database]
+path=.local/share/maildir/opsecfail@opsec.fail
+
+[user]
+name=Mehmet Salih Erken
+primary_email=opsecfail@opsec.fail
+
+[new]
+tags=
+
+[search]
+exclude_tags=junk
+
+[maildir]
+synchronize_flags=true

@@ -1,0 +1,23 @@
+bar {
+    position top
+    height 22
+    font GoMono Nerd Font Mono 14
+
+    # disable vertical scrolling
+    bindsym button4 nop
+    bindsym button5 nop
+    # disable horizontal scrolling
+    bindsym button6 nop
+    bindsym button7 nop
+
+    status_command status_command while date +"[%Y-%m-%d] [%R]" ; do sleep 60; done
+
+    colors {
+        statusline         $black
+        background         $white
+        focused_workspace  $black $black $white
+        active_workspace   $white $black $white
+        inactive_workspace $white $white $black
+        urgent_workspace   $white $black $white
+    }
+}

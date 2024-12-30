@@ -1,0 +1,12 @@
+include variables
+include exec
+include common
+include seat
+include output
+include input
+include apps
+include bindings
+include mode_resize
+include mode_mouse
+include client
+include bar

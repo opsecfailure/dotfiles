@@ -1,0 +1,4 @@
+output * {
+    scale 2
+    background ~/Pictures/Backgrounds/a315_bg.png fit #ffffff
+}

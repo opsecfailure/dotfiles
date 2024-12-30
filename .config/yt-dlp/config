@@ -1,0 +1,11 @@
+# Save in ~/Videos
+--output "${XDG_VIDEOS_DIR}/%(channel)s/%(title)s.%(ext)s"
+
+# Prefer 1080p or lower resolutions
+--format bestvideo[width<2000][height<=1200]+bestaudio/best
+
+# Add chapter markers to the video file
+--embed-chapters
+
+# Download only the video, if the URL refers to a video and a playlist
+--no-playlist

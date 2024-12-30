@@ -1,0 +1,19 @@
+MaildirStore opsec.fail-local
+Path ~/.local/share/maildir/opsecfail@opsec.fail/
+Inbox ~/.local/share/maildir/opsecfail@opsec.fail/INBOX
+Subfolders Verbatim
+Trash Trash
+
+IMAPStore opsec.fail-remote
+Host mail.opsec.fail
+User opsecfail
+Tunnel "ssh opsecfail@opsec.fail /usr/local/libexec/dovecot/imap"
+Timeout 30
+
+Channel opsec.fail
+Far :opsec.fail-remote:
+Near :opsec.fail-local:
+Create Both
+Expunge Both
+Patterns *
+SyncState *

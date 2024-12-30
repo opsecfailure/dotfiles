@@ -1,0 +1,28 @@
+mode Mouse {
+    # Mouse move
+    bindsym h seat seat0 cursor move -128 0
+    bindsym j seat seat0 cursor move 0 128
+    bindsym k seat seat0 cursor move 0 -128
+    bindsym l seat seat0 cursor move 128 0
+    bindsym Shift+h seat seat0 cursor move -32 0
+    bindsym Shift+j seat seat0 cursor move 0 32
+    bindsym Shift+k seat seat0 cursor move 0 -32
+    bindsym Shift+l seat seat0 cursor move 32 0
+
+    # Left button
+    bindsym f seat seat0 cursor press button1
+    bindsym --release f seat seat0 cursor release button1
+
+    # Middle button
+    bindsym d seat seat0 cursor press button2
+    bindsym --release d seat seat0 cursor release button2
+
+    # Right button
+    bindsym s seat seat0 cursor press button3
+    bindsym --release s seat seat0 cursor release button3
+
+    bindsym Escape mode default
+    bindsym Control+bracketleft mode "default"
+    bindsym $mod+v mode default
+}
+bindsym $mod+v mode Mouse

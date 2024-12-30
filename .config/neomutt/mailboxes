@@ -1,0 +1,13 @@
+virtual-mailboxes "INBOX"   "notmuch://?query=folder:INBOX&type=threads"
+virtual-mailboxes "Archive" "notmuch://?query=folder:Archive&type=threads"
+virtual-mailboxes "Drafts"  "notmuch://?query=folder:Drafts&type=threads"
+virtual-mailboxes "Sent"    "notmuch://?query=folder:Sent&type=threads"
+virtual-mailboxes "Junk"    "notmuch://?query=folder:Junk"
+virtual-mailboxes "Trash"   "notmuch://?query=folder:Trash"
+virtual-mailboxes "Feeds"   "notmuch://?query=folder:Feeds"
+virtual-mailboxes "Lists"   "notmuch://?query=folder:Lists&type=threads"
+
+virtual-mailboxes "misc@openbsd.org" notmuch://?query=folder:Lists%20and%20to:misc@openbsd.org&type=threads
+virtual-mailboxes "misc@opensmtpd.org" notmuch://?query=folder:Lists%20and%20to:misc@opensmtpd.org&type=threads
+virtual-mailboxes "arch-general@lists.archlinux.org" "notmuch://?query=folder:Lists%20and%20to:arch-general@lists.archlinux.org&type=threads"
+virtual-mailboxes "neomutt-users@neomutt.org" "notmuch://?query=folder:Lists%20and%20to:neomutt-users@neomutt.org&type=threads"
