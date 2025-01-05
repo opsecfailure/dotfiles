@@ -7,8 +7,8 @@ bindsym $mod+Shift+backspace floating toggle
 bindsym $mod+backspace focus mode_toggle
 bindsym $mod+Shift+r fullscreen
 
-bindsym $mod+i exec $TERMINAL
-bindsym $mod+Shift+w exec save-active-window
+bindsym $mod+i exec "swaymsg workspace 3; (pgrep $TERMINAL || $TERMINAL --app-id='terminal')"
+bindsym $mod+Shift+w exec "save-focused-window; flash-screen"
 bindsym $mod+n exec bm
 bindsym $mod+Shift+v exec wmenu-ydotool
 bindsym $mod+p exec pass-wmenu
@@ -30,27 +30,43 @@ bindsym --locked $mod+m \
     exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym --locked XF86AudioMute \
     exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
 bindsym --locked $mod+Shift+m \
     exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym --locked XF86AudioMicMute \
     exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-bindsym --locked $mod+Shift+Space exec mpc pause
-bindsym --locked XF86AudioPlay    exec playerctl play-pause --all-players
-bindsym --locked $mod+Shift+Minus exec mpc prev
-bindsym --locked XF86AudioPrev exec mpc prev
+bindsym --locked $mod+Shift+Minus \
+    exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-
 bindsym --locked $mod+Shift+Equal exec mpc next
-bindsym --locked XF86AudioNext exec mpc next
+    exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+
 
-bindsym --locked $mod+Shift+bracketleft  exec brightnessctl set 1%-
-bindsym --locked XF86MonBrightnessDown   exec brightnessctl set 1%-
-bindsym --locked $mod+Shift+bracketright exec brightnessctl set 1%+
-bindsym --locked XF86MonBrightnessUp     exec brightnessctl set 1%+
+bindsym --locked XF86AudioPrev \
+    exec playerctl previous
+bindsym --locked XF86AudioNext \
+    exec playerctl next
 
-bindsym --locked $mod+apostrophe exec pkill -SIGUSR1 wlsunset
+bindsym --locked $mod+Shift+Space \
+    exec playerctl play-pause --all-players
+bindsym --locked XF86AudioPlay \
+    exec playerctl play-pause --all-players
 
-bindsym $mod+a workspace 1
-bindsym $mod+s workspace 2
+bindsym --locked $mod+Shift+bracketleft \
+    exec brightnessctl set 1%-
+bindsym --locked XF86MonBrightnessDown \
+    exec brightnessctl set 1%-
+bindsym --locked $mod+Shift+bracketright \
+    exec brightnessctl set 1%+
+bindsym --locked XF86MonBrightnessUp \
+    exec brightnessctl set 1%+
+
+bindsym --locked $mod+apostrophe \
+    exec pkill -SIGUSR1 wlsunset
+
+bindsym $mod+a \
+    exec "swaymsg workspace 1; (swaymsg -t get_tree | grep -q "app_id.*fm-media" || $TERMINAL --app-id=fm-media)"
+bindsym $mod+s \
+    exec "swaymsg workspace 2; (pgrep -f 'fm-docs' || swaymsg reload)"
 bindsym $mod+d workspace 3
 bindsym $mod+f workspace 4
 bindsym $mod+g workspace 5
