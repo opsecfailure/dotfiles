@@ -1,6 +1,6 @@
 output * {
     scale 2
-    background ~/Pictures/Backgrounds/a315_bg.png fit #ffffff
+    background ~/pics/bg/a315_bg.png fit #ffffff
 }
 
 output eDP-1 {

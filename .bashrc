@@ -12,6 +12,7 @@ export MANWIDTH=66
 export HISTSIZE=1000000
 export NO_COLOR=1
 export PROMPT_COMMAND="history -a"
+export LS_COLORS="di=1"
 
 . /usr/share/git/completion/git-prompt.sh
 PS1='\[\e[1m\]\u@\h:[\w]$(__git_ps1 "(%s)")\$\[\e[0m\] '
