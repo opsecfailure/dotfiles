@@ -1,0 +1,20 @@
+#!/bin/sh
+
+ZERO="yes"
+ONE="no"
+PROMPT="Are you sure?"
+
+while getopts "q:" opt; do
+    case $opt in
+        q) PROMPT="$OPTARG" ;;
+        *) echo "Usage: $0 [-q "prompt message"]"; exit 1 ;;
+    esac
+done
+
+CHOICE=$(echo -e "$ZERO\n$ONE" | cmenu -p "$PROMPT")
+
+if [[ "$CHOICE" == "$ZERO" ]]; then
+    exit 0
+else
+    exit 1
+fi

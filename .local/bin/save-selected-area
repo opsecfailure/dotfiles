@@ -1,0 +1,9 @@
+#!/bin/sh
+
+selected_area="$(slurp -d)"
+file_name="$(date +'%FT%T%:z.png')"
+file_path="${XDG_SCREENSHOTS_DIR:-$HOME/Pictures}/$file_name"
+
+grim \
+    -g "$focused_window" \
+    "$file_path"

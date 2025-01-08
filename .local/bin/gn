@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# good night: find and play a podcast with intended duration then
+# suspend the computer 
+
+xdg-open "$(mezura "${XDG_PODCASTS_DIR:-$HOME/Podcasts}" ${1})" &
+sleep "$(expr ${1} \* 72)" && systemctl suspend

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+readonly INBOX="{$XDG_DATA_DIR}/maildir/opsecfail@opsec.fail/INBOX/new/"
+
+rsync \
+    --rsync-path=/usr/bin/openrsync \
+    -av \
+    opsecfail@smtp-0.opsec.fail:Maildir/new/ \
+    "${INBOX}"
+
+rsync \
+    --rsync-path=/usr/bin/openrsync \
+    -av \
+    opsecfail@smtp-1.opsec.fail:Maildir/new/ \
+    "${INBOX}"

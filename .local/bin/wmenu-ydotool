@@ -1,0 +1,5 @@
+#!/bin/sh
+
+input="$(cmenu -p 'ydotool type' < /dev/null)"
+sleep 1
+ydotool type "$input"

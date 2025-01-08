@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# find and play a podcast with intended duration
+
+xdg-open "$(mezura "${XDG_PODCASTS_DIR:-$HOME/Podcasts}" ${1})"

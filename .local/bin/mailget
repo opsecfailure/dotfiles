@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync --rsync-path=/usr/bin/openrsync -av opsecfail@mail.opsec.fail:Maildir/new/ ~/.local/share/maildir/opsecfail@opsec.fail/INBOX/new/

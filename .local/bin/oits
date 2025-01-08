@@ -1,0 +1,25 @@
+#!/bin/sh
+
+readonly CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/oits"
+
+if [ $# -eq 0 ]; then
+    ls "$CONFIG_PATH"
+    exit
+fi
+
+session_name="$1"
+shift
+
+if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    session_file="$CONFIG_PATH/$session_name"
+    if [ -f "$session_file" ]; then
+        . "$session_file"
+    else
+        tmux new-session -d -s "$session_name" "$@"
+        shift "$#"
+    fi
+fi
+
+if [ $# -gt 0 ]; then
+    tmux new-window -t "$session_name" "$@"
+fi

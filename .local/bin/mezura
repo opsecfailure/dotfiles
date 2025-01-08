@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Find media file with the closest duration match
+
+if [ $# -ne 2 ] || ! expr "$2" : '^[0-9]*$' >/dev/null; then
+    echo "Usage: $0 <target_path> <duration_in_minutes>"
+    exit 1
+fi
+
+readonly TARGET_PATH="$1"
+readonly TARGET_DURATION="$2"
+
+find_closest_file() {
+    local file duration duration_minutes diff closest_file
+
+    find "$TARGET_PATH" -type f -exec file --mime-type {} + |
+        grep -E 'audio/|video/' | cut -d: -f1 | while read -r file; do
+            duration=$(
+                ffprobe -v quiet \
+                    -show_entries format=duration \
+                    -of default=noprint_wrappers=1:nokey=1 \
+                    "$file" \
+                    2>/dev/null
+                )
+            if [ -n "$duration" ]; then
+                duration_minutes=$(
+                    printf "%.0f" \
+                    "$(echo "$duration / 60" | bc -l)"
+                )
+                diff=$(
+                    echo "sqrt(($duration_minutes - $TARGET_DURATION)^2)" \
+                        | bc -l
+                )
+                echo "$diff $file"
+            fi
+        done | sort -n | head -n1 | cut -d' ' -f2-
+}
+
+readonly CLOSEST_FILE="$(find_closest_file)"
+
+if [ -n "${CLOSEST_FILE}" ]; then
+    echo "${CLOSEST_FILE}"
+    exit 0
+else
+    exit 1
+fi

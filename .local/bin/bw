@@ -1,0 +1,21 @@
+#!/bin/sh
+
+readonly CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/bw"
+readonly PROFILES_PATH="$CONFIG_PATH/profiles"
+readonly SERVICES_PATH="$CONFIG_PATH/services"
+
+function get_service_status() {
+    . "${SERVICES_PATH}/${1}"
+    eval "${cmd_status}"
+    if [ $? -eq 0 ]; then
+        status="1"
+    else
+        status="0"
+    fi
+}
+
+function main() {
+    get_service_status "${1}"
+}
+
+main "${@}"

@@ -1,0 +1,32 @@
+#!/bin/sh
+cmd_name=$(basename "$0")
+commands_dir="$HOME/.local/lib/commands"
+
+# If called directly as cmd-dispatcher, show available command groups
+if [ "$cmd_name" = "cmd-dispatcher" ]; then
+    echo "Available command groups:"
+    ls "$commands_dir"
+    exit 0
+fi
+
+cmd_dir="$commands_dir/$cmd_name"
+
+if [ ! -d "$cmd_dir" ]; then
+    echo "Command group '$cmd_name' not found"
+    exit 1
+fi
+
+if [ -z "$1" ]; then
+    echo "Available $cmd_name commands:"
+    ls "$cmd_dir"
+    exit 1
+fi
+
+if [ -x "$cmd_dir/$1" ]; then
+    exec "$cmd_dir/$1" "${@:2}"
+else
+    echo "Unknown command '$1' for $cmd_name"
+    echo "Available commands:"
+    ls "$cmd_dir"
+    exit 1
+fi

@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# nnncmpcpp's not ncmpcpp
+
+oits \
+    media \
+    mpv \
+        --ytdl-format=bestaudio \
+        ytdl://ytsearch:"${*}"

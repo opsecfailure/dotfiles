@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./.local/share/zp/machine/$1.sh

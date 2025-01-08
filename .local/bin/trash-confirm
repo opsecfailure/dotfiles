@@ -1,0 +1,13 @@
+#!/bin/sh
+
+trash_command="trash-put"
+prompt="Trash the file?"
+
+while getopts "q:" opt; do
+    case $opt in
+        q) prompt="$OPTARG" ;;
+        *) echo "Usage: $0 [-q "prompt message"]"; exit 1 ;;
+    esac
+done
+
+cmenu-yes-no -q "$prompt" && $trash_command "${@:3}"

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+yt-dlp \
+    --output="$XDG_VIDEOS_DIR/%(channel)s/%(playlist_title)s/[%(playlist_autonumber)s] - %(title)s.%(ext)s" \
+    --download-archive "$XDG_VIDEOS_DIR/.archive.txt" \
+    "${@}"

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+readonly FLASH_DURATION="0.1"
+
+slurp \
+    & (sleep "${FLASH_DURATION}"; pkill slurp)

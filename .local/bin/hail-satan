@@ -1,0 +1,4 @@
+#!/bin/sh
+# daemonize given command
+
+nohup "${@}" 1>/dev/null 2>/dev/null &

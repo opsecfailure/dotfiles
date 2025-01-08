@@ -1,0 +1,27 @@
+#!/bin/sh
+
+notmuch new
+
+notmuch search --output=files --format=text0 $filter | xargs -0 --no-run-if-empty mv -t ~/mail/company/Archive/new/
+
+notmuch tag -new +inbox   -- folder:Inbox
+notmuch tag -new +archive -- folder:Archive
+notmuch tag -new +sent    -- folder:Sent
+notmuch tag -new +draft   -- folder:Drafts
+notmuch tag -new +junk    -- folder:Junk
+notmuch tag -new +trash   -- folder:Trash
+notmuch tag -new +feed    -- folder:Feeds
+notmuch tag -new +list    -- folder:Lists
+
+notmuch tag -new -unread +sent -- tag:new and from:opsecfail@opsec.fail
+
+notmuch tag -new +feed -- to:announce@openbsd.org
+notmuch tag -new +feed -- to:arch-announce@lists.archlinux.org
+
+notmuch tag -new +list -- to:misc@openbsd.org
+notmuch tag -new +list -- to:tor-dev@lists.torproject.org
+notmuch tag -new +list -- to:arch-general@lists.archlinux.org
+notmuch tag -new +list -- to:misc@opensmtpd.org
+notmuch tag -new +list -- to:neomutt-users@neomutt.org
+
+notmuch tag -new +inbox -- tag:new

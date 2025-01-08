@@ -1,0 +1,6 @@
+#!/bin/sh
+
+gpgconf --reload gpg-agent &
+systemctl --user restart ssh-agent.service &
+swaylock &
+playerctl pause --all-players &

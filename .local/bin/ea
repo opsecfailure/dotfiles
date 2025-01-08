@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# eating alone :(
+# find and play a video with intended duration
+
+xdg-open "$(mezura ${XDG_VIDEOS_DIR:-$HOME/Videos} ${1})"
