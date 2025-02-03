@@ -1,0 +1,44 @@
+#!/bin/sh
+
+readonly MAIL_ADDRESS="opsecfail@opsec.fail"
+
+notmuch new
+
+notmuch search \
+    --output=files \
+    folder:INBOX \
+    AND NOT to:opsecfail@opsec.fail \
+    AND "( \
+        to:misc@openbsd.org \
+        OR to:misc@opensmtpd.org \
+        OR to:arch-general@lists.archlinux.org \
+        OR to:tor-relays@lists.torproject.org \
+        OR to:tor-dev@lists.torproject.org \
+        OR to:neomutt-users@neomutt.org \
+    )" \
+    | while read -r mail; do
+        mv "${mail}" "${MAILDIR}/${MAIL_ADDRESS}/Lists/new/"
+    done
+notmuch new
+
+notmuch search \
+    --output=files \
+    folder:INBOX \
+    AND NOT to:opsecfail@opsec.fail \
+    AND "( \
+        to:announce@openbsd.org \
+        OR to:arch-announce@lists.archlinux.org \
+    )" \
+    | while read -r mail; do
+        mv "${mail}" "${MAILDIR}/${MAIL_ADDRESS}/Feeds/new/"
+    done
+notmuch new
+
+notmuch search \
+    --output=files \
+    NOT tag:unread \
+    | while read -r mail; do
+        mailbox="${mail%/*/*}"
+        mv "${mail}" "${mailbox}/cur/"
+    done
+notmuch new

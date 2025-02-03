@@ -1,0 +1,14 @@
+# vim: ft=neomuttrc
+color header bold default default "^date:"
+color header bold default default "^from:"
+color header bold default default "^to:"
+color header bold default default "^cc:"
+color header bold default default "^subject:"
+color header bold default default "^x-mailer:"
+color header bold default default "^user-agent:"
+
+color body bold default default "^(>+ *)+"
+
+color attachment bold default default
+
+color compose header bold default default

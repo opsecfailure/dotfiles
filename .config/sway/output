@@ -1,0 +1,3 @@
+output * {
+    background ~/pics/bg/a315_bg.png fit
+}

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+lockdown
+systemctl hibernate

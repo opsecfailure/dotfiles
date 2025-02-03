@@ -1,0 +1,9 @@
+#!/bin/sh
+
+focused_output="$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"
+file_name="$(date +'%FT%T%:z.png')"
+file_path="${XDG_SCREENSHOTS_DIR:-$HOME/pics}/${file_name}"
+
+grim \
+    -o "${focused_output}" \
+    "${file_path}"

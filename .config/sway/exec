@@ -1,0 +1,7 @@
+exec "swaylock"
+exec "swayidle"
+exec_always "pkill kanshi; kanshi"
+exec "dbus-update-activation-environment \
+    --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
+exec "wl-paste --type text --watch cliphist store"
+exec "ydotoold"

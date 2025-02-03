@@ -1,0 +1,6 @@
+#!/bin/sh
+
+oits \
+    media \
+    mpv \
+        ytdl://ytsearch:"${*}"

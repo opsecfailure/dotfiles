@@ -1,0 +1,82 @@
+bindswitch --locked lid:on exec secure-suspend
+
+bindsym $mod+Shift+q kill
+bindsym $mod+r reload
+bindsym $mod+Shift+backslash exit
+bindsym $mod+Shift+u move scratchpad
+bindsym $mod+u scratchpad show
+bindsym $mod+Shift+backspace floating toggle
+bindsym $mod+backspace focus mode_toggle
+bindsym $mod+Shift+r fullscreen
+
+bindsym $mod+i exec foot
+bindsym $mod+Shift+w exec "save-focused-window; flash-screen"
+bindsym $mod+Shift+v exec wmenu-ydotool
+bindsym --locked $mod+n exec pkill -SIGUSR1 wlsunset
+
+bindsym --locked $mod+0 \
+    output eDP-1 dpms toggle
+
+bindsym --locked $mod+Minus \
+    exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioLowerVolume \
+    exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked $mod+Equal \
+    exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioRaiseVolume \
+    exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SINK@ 5%+
+
+bindsym --locked $mod+m \
+    exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioMute \
+    exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+bindsym --locked $mod+Shift+Minus \
+    exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-
+bindsym --locked $mod+Shift+Equal \
+    exec wpctl set-volume --limit 1 @DEFAULT_AUDIO_SOURCE@ 5%+
+
+bindsym --locked $mod+Shift+m \
+    exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym --locked XF86AudioMicMute \
+    exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+bindsym --locked XF86AudioPrev \
+    exec playerctl previous
+bindsym --locked XF86AudioNext \
+    exec playerctl next
+
+bindsym --locked $mod+Shift+Space \
+    exec playerctl play-pause --all-players
+bindsym --locked XF86AudioPlay \
+    exec playerctl play-pause --all-players
+
+bindsym --locked $mod+Shift+bracketleft \
+    exec brightnessctl set -n1 -e4 1%-
+bindsym --locked XF86MonBrightnessDown \
+    exec brightnessctl set -n1 -e4 1%-
+bindsym --locked $mod+Shift+bracketright \
+    exec brightnessctl set -n1 -e4 1%+
+bindsym --locked XF86MonBrightnessUp \
+    exec brightnessctl set -n1 -e4 1%+
+
+bindsym $mod+a workspace 1
+bindsym $mod+s workspace 2
+bindsym $mod+d workspace 3
+bindsym $mod+f workspace 4
+bindsym $mod+g workspace 5
+bindsym $mod+Shift+a move container to workspace 1
+bindsym $mod+Shift+s move container to workspace 2
+bindsym $mod+Shift+d move container to workspace 3
+bindsym $mod+Shift+f move container to workspace 4
+bindsym $mod+Shift+g move container to workspace 5
+
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left  move left  25 ppt
+bindsym $mod+Shift+$down  move down  25 ppt
+bindsym $mod+Shift+$up    move up    25 ppt
+bindsym $mod+Shift+$right move right 25 ppt

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. "${HOME}/.local/bin/zp-env-default"
+
+qemu-system-x86_64 \
+    -display none \
+    -accel "${accel}" \
+    -cpu "${cpu}" \
+    -m 1024 \
+    -drive "${drive}" \
+    -machine "${machine}" \
+    -monitor "${monitor}" \
+    -nic "${nic}" \

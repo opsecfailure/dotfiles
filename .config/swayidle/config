@@ -1,0 +1,2 @@
+timeout 20 "pgrep swaylock && systemctl suspend"
+timeout 64800 "secure-suspend"

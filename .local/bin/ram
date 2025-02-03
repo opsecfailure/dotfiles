@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# repeat after me
+
+readonly WAIT_DURATION="2"
+readonly PROGRAM_NAME="$(basename "${0}")"
+
+input="$(cat)"
+if [ -z "${input}" ]; then
+    echo "${PROGRAM_NAME}: no input. exiting."
+    exit
+fi
+
+echo "${PROGRAM_NAME}: OK."
+echo "${PROGRAM_NAME}: will type in ${WAIT_DURATION}."
+
+sleep "${WAIT_DURATION}"
+dotool "${input}"

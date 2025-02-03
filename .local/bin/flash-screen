@@ -1,0 +1,6 @@
+#!/bin/sh
+
+readonly FLASH_DURATION="${1:-0.1}"
+readonly COLOR_BG="00000047"
+
+slurp -b "${COLOR_BG}" & (sleep "${FLASH_DURATION}"; pkill slurp)

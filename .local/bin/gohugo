@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -eu
+
+fire
+
+hugo \
+    --cleanDestinationDir
+
+rsync \
+    --archive \
+    --verbose \
+    --compress \
+    --delete \
+    ../www.opsec.fail/public/ \
+    opsecfail@www.opsec.fail:/var/www/htdocs/www.opsec.fail/

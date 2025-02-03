@@ -1,0 +1,109 @@
+# vim: ft=neomuttrc
+
+# NAVIGATION
+## ATTACH
+bind  attach   G       last-entry
+bind  attach   gg      first-entry
+bind  attach   l       view-attach
+## BROWSER
+bind  browser  h       exit
+bind  browser  l       select-entry
+## INDEX
+bind  index    g0      root-message
+bind  index    gu      parent-message
+bind  index    B       previous-unread
+bind  index    G       last-entry
+bind  index    W       next-unread
+bind  index    b       previous-subthread
+bind  index    gg      first-entry
+bind  index    j       next-entry
+bind  index    k       previous-entry
+bind  index    w       next-subthread
+bind  index    {       previous-thread
+bind  index    }       next-thread
+macro index    l       "<display-message><sync-mailbox>"
+macro pager    J       "<next-entry><sync-mailbox>"
+macro pager    K       "<previous-entry><sync-mailbox>"
+## PAGER
+bind  pager    G       bottom
+bind  pager    gg      top
+bind  pager    h       exit
+bind  pager    j       next-line
+bind  pager    k       previous-line
+bind  pager    l       view-attachments
+
+# FOLDERS
+macro index    ga      "<change-folder>Archive<enter>"
+macro index    gd      "<change-folder>Drafts<enter>"
+macro index    gn      "<change-folder>Feeds<enter>"
+macro index    gi      "<change-folder>INBOX<enter>"
+macro index    gj      "<change-folder>Junk<enter>"
+macro index    gl      "<change-folder>Lists<enter>"
+macro index    gs      "<change-folder>Sent<enter>"
+macro index    gt      "<change-folder>Trash<enter>"
+
+# COMPOSE
+## INDEX
+bind  index    go      list-reply
+bind  index    gO      list-reply
+bind  index    P       bounce-message
+bind  index    cc      compose-to-sender
+bind  index    i       mail
+bind  index    A       reply
+bind  index    p       forward-message
+bind  index    ad      list-unsubscribe
+macro index    o       "<change-vfolder>?"
+## PAGER
+bind  pager    go      list-reply
+bind  pager    gO      list-reply
+bind  pager    P       bounce-message
+bind  pager    cc      compose-to-sender
+bind  pager    i       mail
+bind  pager    a       group-reply
+bind  pager    C       reply
+bind  pager    p       forward-message
+bind  index    ad      list-unsubscribe
+## COMPOSE
+bind compose   y       send-message
+
+# SEARCH
+## BROWSER
+bind  browser  N       search-opposite
+## INDEX
+bind  index    /       search
+bind  index    ?       limit
+bind  index    N       search-opposite
+## PAGER
+bind  pager    N       search-opposite
+
+# OPS
+## INDEX
+bind  index    S       sort-reverse
+bind  index    ma      create-alias
+bind  index    mm      alias-dialog
+bind  index    s       sort-mailbox
+bind  index    <space> tag-entry
+bind  index    *       tag-thread
+macro index    mr      "<clear-flag>N"
+macro index    mu      "<set-flag>N"
+macro index    %       "<tag-pattern>@<enter>"
+macro index    u       "<untag-pattern>@"
+macro index    dd      "<save-message>+Trash<enter><sync-mailbox><check-stats>"
+macro index    D       "<tag-thread>dd"
+macro index    ff      "<save-message>+Archive<enter><sync-mailbox><check-stats><previous-thread><mark-message>z<enter><change-folder>^<enter>'z"
+macro index    F       "<tag-thread>ff"
+macro index    mj      "<save-message>+Junk<enter><sync-mailbox><check-stats>"
+macro index    mJ      "<tag-thread>mj"
+macro index    u       "<save-message>+INBOX<enter><sync-mailbox><check-stats>"
+macro index    U       "<tag-thread>mi"
+macro index    ml      "<save-message>+Lists<enter><sync-mailbox><check-stats>"
+macro index    mL      "<tag-thread>ml"
+macro index    r       "<shell-escape>hail-satan mailtag<enter>"
+macro index    R       "<shell-escape>hail-satan mailsync<enter>"
+## PAGER
+bind  pager    ma       create-alias
+macro pager    f        "<pipe-message> urlscan<Enter>"
+
+bind  index    gf      display-toggle-weed
+## PAGER
+bind  pager    gf      display-toggle-weed

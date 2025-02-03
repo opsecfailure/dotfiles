@@ -1,0 +1,32 @@
+virtual-mailboxes "INBOX"   "notmuch://?query=folder:INBOX&type=threads"
+virtual-mailboxes "Archive" "notmuch://?query=folder:Archive&type=threads"
+virtual-mailboxes "Drafts"  "notmuch://?query=folder:Drafts&type=threads"
+virtual-mailboxes "Sent"    "notmuch://?query=folder:Sent&type=threads"
+virtual-mailboxes "Junk"    "notmuch://?query=folder:Junk&type=threads"
+virtual-mailboxes "Trash"   "notmuch://?query=folder:Trash&type=threads"
+virtual-mailboxes "Feeds"   "notmuch://?query=folder:Feeds&type=threads"
+virtual-mailboxes "Lists"   "notmuch://?query=folder:Lists&type=threads"
+
+virtual-mailboxes "misc@openbsd.org" \
+    "notmuch://?type=threads&query=folder:Lists AND \
+    to:misc@openbsd.org"
+
+virtual-mailboxes "misc@opensmtpd.org" \
+    "notmuch://?type=threads&query=folder:Lists AND \
+    to:misc@opensmtpd.org"
+
+virtual-mailboxes "arch-general@lists.archlinux.org" \
+    "notmuch://?type=threads&query=folder:Lists AND \
+    to:arch-general@lists.archlinux.org"
+
+virtual-mailboxes "neomutt-users@neomutt.org" \
+    "notmuch://?type=threads&query=folder:Lists AND \
+    to:neomutt-users@neomutt.org"
+
+virtual-mailboxes "tor-dev@lists.torproject.org" \
+    "notmuch://?type=threads&query=folder:Lists AND \
+    to:tor-dev@lists.torproject.org"
+
+virtual-mailboxes "tor-relays@lists.torproject.org" \
+    "notmuch://?type=threads&query=folder:Lists AND \
+    to:tor-relays@lists.torproject.org \

@@ -1,0 +1,4 @@
+seat * {
+    hide_cursor 5000
+    xcursor_theme default 24
+}

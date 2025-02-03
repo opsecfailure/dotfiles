@@ -1,0 +1,9 @@
+#!/bin/sh
+
+readonly OUTPUT="${XDG_PODCASTS_DIR}/%(channel)s/%(title)s.%(ext)s"
+
+yt-dlp \
+    --output="${OUTPUT}" \
+    --download-archive "$XDG_PODCASTS_DIR/.archive.txt" \
+    --format bestaudio[ext=m4a] \
+    "${@}"

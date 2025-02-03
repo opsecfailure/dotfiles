@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# cliphist selector
+
+cliphist list \
+    | fzf \
+    | cliphist decode \
+    | wl-copy

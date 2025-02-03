@@ -1,0 +1,7 @@
+default_border pixel 2
+floating_modifier $mod normal
+font GoMono Nerd Font Mono Bold 12
+titlebar_border_thickness 3
+titlebar_padding 10 3
+workspace_layout default
+hide_edge_borders both

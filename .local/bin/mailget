@@ -1,0 +1,19 @@
+#!/bin/sh
+
+readonly INBOX="${XDG_DATA_HOME}/maildir/opsecfail@opsec.fail/INBOX/new/"
+
+rsync \
+    --archive \
+    --verbose \
+    --compress \
+    --remove-source-files \
+    opsecfail@smtp-0.opsec.fail:Maildir/new/ \
+    "${INBOX}"
+
+rsync \
+    --archive \
+    --verbose \
+    --compress \
+    --remove-source-files \
+    opsecfail@smtp-1.opsec.fail:Maildir/new/ \
+    "${INBOX}"

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+swayimg \
+    --gallery \
+    --recursive \
+    "${XDG_PICTURES_DIR:-${HOME}/pics}"

@@ -1,0 +1,67 @@
+set real_name = "Mehmet Salih Erken"
+set from = "opsecfail@opsec.fail"
+
+# Go to the line after the first empty one.
+set editor = "nvim +/^$/+1 +':noh'" 
+set folder = "${MAILDIR}/opsecfail@opsec.fail"
+set header_cache = "${XDG_CACHE_HOME}/neomutt/header_cache"
+set mailcap_path = "${XDG_CONFIG_HOME}/neomutt/mailcap"
+set mbox_type = "Maildir"
+set spool_file = "INBOX"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set nm_default_url="notmuch://${XDG_DATA_HOME}/notmuch/"
+
+auto_view text/html
+alternative_order text/plain text/html
+
+#set attach_format = ""
+#set date_format = ""
+#set pager_format = ""
+#set ruery_format = ""
+set forward_format = "Fwd: %s"
+set index_format = "%4C |%zs%zt| %-10.10L | %-40.40s | \
+%<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%m/%y ]>"
+
+set user_agent = yes
+set abort_key = "<Esc>"
+set attach_save_dir = "$XDG_DOWNLOAD_DIR"
+set attach_save_without_prompting = yes
+# Skip the subject and recipient prompt when composing.
+set auto_edit = yes
+# Do not prompt for <save-message> confirmation.
+set confirm_append = no
+# Do not prompt when moving an email to trash.
+set delete = yes
+set edit_headers = yes
+# Apply header colors for labels only.
+set header_color_partial = yes
+# Hide help bar at top.
+set help = no
+# Include a copy of replied message on the body.
+set include = yes
+# Do not mark unread emails as "old" on exit.
+set mark_old = no
+# Do not put "+" at start of wrapped lines.
+set markers = no
+# Do not move to the next message with <next-page>.
+set pager_stop = yes
+# Disable quitting bindings. Send SIGINT to quit.
+set quit = no
+# Do not advance the cursor to the next item on an action.
+set resolve = no
+set send_charset = "utf-8"
+# Disable pause while displaying some informational messages.
+set sleep_time = 0
+set sort = "reverse-date"
+# Pad blank lines to the bottom of the screen with a tilde.
+set tilde = yes
+set tmp_dir = "$XDG_CACHE_HOME/neomutt"
+set use_threads = yes
+# Disable "Press any key to continue..." dialog after external commands.
+set wait_key = no
+
+source mailboxes
+source colors
+source bindings

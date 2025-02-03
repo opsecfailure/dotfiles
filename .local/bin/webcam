@@ -1,0 +1,16 @@
+#!/bin/sh
+
+readonly APP_ID="webcam"
+readonly DEVICE_NUMBER="${1:-0}"
+
+mpv \
+    --cache=no \
+    --demuxer-lavf-format=video4linux2 \
+    --demuxer-lavf-o-set=input_format=mjpeg \
+    --osc=no \
+    --pause=no \
+    --profile=low-latency \
+    --really-quiet=yes \
+    --untimed=yes \
+    --wayland-app-id="${APP_ID}" \
+    av://v4l2:/dev/video"${DEVICE_NUMBER}"

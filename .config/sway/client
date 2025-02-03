@@ -1,0 +1,5 @@
+# Property Name         Border BG     Text   Indicator Child border
+client.focused          $black $white $black $black $black
+client.focused_inactive $black $black $white $black $black
+client.unfocused        $black $black $white $black $black
+client.urgent           $black $black $white $black $black

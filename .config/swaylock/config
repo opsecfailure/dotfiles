@@ -1,0 +1,8 @@
+daemonize
+font=GoMono Nerd Font
+ignore-empty-password
+image=${XDG_BACKGROUNDS_DIR}/xkcd_security.png
+indicator-radius=32
+indicator-thickness=8
+scaling=center
+show-failed-attempts

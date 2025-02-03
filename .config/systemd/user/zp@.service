@@ -1,0 +1,11 @@
+[Unit]
+Description=QEMU virtual machine %i
+
+[Service]
+Environment="PATH=%h/.local/bin"
+ExecStart=%h/.local/bin/zp-%i
+ExecStop=/usr/bin/sh -c 'echo "system_powerdown" | nc -U /tmp/zp_monitor_%i.socket'
+ExecStop=/usr/bin/sh -c 'while nc -U /tmp/zp_monitor_%i.socket; do sleep 1; done'
+
+[Install]
+WantedBy=default.target

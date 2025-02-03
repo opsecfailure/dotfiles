@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gpgconf --reload gpg-agent
+swaylock
+playerctl pause --all-players

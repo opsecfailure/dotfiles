@@ -1,0 +1,14 @@
+#!/bin/sh
+
+readonly SESSION_NAME="media"
+
+tmux new-session \
+    -d \
+    -s "${SESSION_NAME}" \
+    -n casts \
+    "lf -config ${XDG_CONFIG_HOME}/lf/lfrc_noquit ${XDG_PODCASTS_DIR}"
+
+tmux new-window \
+    -t "${SESSION_NAME}" \
+    -n vids \
+    "lf -config ${XDG_CONFIG_HOME}/lf/lfrc_noquit ${XDG_VIDEOS_DIR}"

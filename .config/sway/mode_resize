@@ -1,0 +1,13 @@
+#mode "resize" {
+#    # hjkl to resize
+#    bindsym h resize grow width 10 ppt
+#    bindsym j resize shrink height 10 ppt
+#    bindsym k resize grow height 10 ppt
+#    bindsym l resize shrink width 10 ppt
+#    # Return to default mode
+#    bindsym Escape mode "default"
+#    bindsym Return mode "default"
+#    bindsym Backspace mode "default"
+#    bindsym Control+bracketleft mode "default"
+#}
+#bindsym $mod+Shift+r mode "resize"

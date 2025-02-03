@@ -1,0 +1,9 @@
+#!/bin/sh
+
+readonly OUTPUT="${XDG_VIDEOS_DIR}/%(channel)s/[%(playlist_autonumber)s] %(title)s.%(ext)s"
+
+yt-dlp \
+    --output="${OUTPUT}" \
+    --download-archive "$XDG_VIDEOS_DIR/.archive.txt" \
+    --playlist-reverse \
+    "${@}"

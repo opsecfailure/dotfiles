@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# open in tmux session
+
+export readonly SESSION_NAME="${1}"
+shift
+
+if ! tmux has-session -t "${SESSION_NAME}" 2>/dev/null; then
+    if which oits-"${SESSION_NAME}" 1>/dev/null 2>/dev/null; then
+        oits-"${SESSION_NAME}"
+    else
+        tmux new-session -d -s "${SESSION_NAME}" "${@}"
+        shift "${#}"
+    fi
+fi
+
+if [ ${#} -gt 0 ]; then
+    tmux new-window -t "${SESSION_NAME}" "${@}"
+fi

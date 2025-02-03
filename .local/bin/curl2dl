@@ -1,0 +1,8 @@
+#!/bin/sh
+
+curl \
+    --output-dir "${XDG_DOWNLOAD_DIR:-${HOME}/dl}" \
+    --remote-name \
+    --location \
+    --continue-at - \
+    "${@}"

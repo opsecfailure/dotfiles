@@ -1,0 +1,9 @@
+#!/bin/sh
+
+focused_window="$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+file_name="$(date +'%FT%T%:z.png')"
+file_path="${XDG_SCREENSHOTS_DIR:-$HOME/pics}/${file_name}"
+
+grim \
+    -g "${focused_window}" \
+    "${file_path}"
