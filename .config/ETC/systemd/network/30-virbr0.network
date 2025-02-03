@@ -1,0 +1,13 @@
+[Match]
+Name=virbr0
+
+[Link]
+RequiredForOnline=routable
+
+[Network]
+Address=192.168.42.1/24
+DNS=192.168.42.5
+
+[Route]
+Gateway=192.168.42.1
+Metric=1024

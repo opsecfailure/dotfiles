@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Updating list of explicitly installed packages...
+When = PostTransaction
+Exec = /bin/sh -c '/usr/bin/pacman -Qqen > /etc/pacman.d/pkglist_native.txt; /usr/bin/pacman -Qqem > /etc/pacman.d/pkglist_foreign.txt'
