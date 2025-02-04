@@ -52,13 +52,13 @@ bindsym --locked XF86AudioPlay \
     exec playerctl play-pause --all-players
 
 bindsym --locked $mod+Shift+bracketleft \
-    exec brightnessctl set -n1 -e4 1%-
+    exec brightnessctl set -n1 -e4 2%-
 bindsym --locked XF86MonBrightnessDown \
-    exec brightnessctl set -n1 -e4 1%-
+    exec brightnessctl set -n1 -e4 2%-
 bindsym --locked $mod+Shift+bracketright \
-    exec brightnessctl set -n1 -e4 1%+
+    exec brightnessctl set -n1 -e4 2%+
 bindsym --locked XF86MonBrightnessUp \
-    exec brightnessctl set -n1 -e4 1%+
+    exec brightnessctl set -n1 -e4 2%+
 
 bindsym $mod+a workspace 1
 bindsym $mod+s workspace 2
